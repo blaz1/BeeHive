@@ -1,6 +1,5 @@
 package eu.execom.hackaton.beacon.activity;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
@@ -42,12 +41,6 @@ public class MainActivity extends AppCompatActivity {
     @Receiver(actions = BeaconDiscoveryService.NEW_BEACON_SIGHTING)
     void onBeaconSighted() {
         adapter.update(BeaconDiscoveryService.getLocations());
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
     }
 
 }

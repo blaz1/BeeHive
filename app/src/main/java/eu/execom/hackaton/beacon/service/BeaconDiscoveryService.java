@@ -102,8 +102,17 @@ public class BeaconDiscoveryService extends Service {
         locations.add(newLocation);
     }
 
-    public static List<Location> getLocations() {
-        return locations;
+    public static Location getLocations() {
+        int maxSignal=Integer.MIN_VALUE;
+        int maxIndex=0;
+        for(int i=0;i<locations.size();i++){
+            if(locations.get(i).signalStrength>maxSignal){
+                maxSignal=locations.get(i).signalStrength;
+                maxIndex=i;
+            }
+        }
+
+        return locations.get(maxIndex);
     }
 
     @Override

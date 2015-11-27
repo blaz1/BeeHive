@@ -4,7 +4,7 @@ public class Location {
 
     private static final int SIGNAL_STRENGTH_STRONG = -60;
     private static final int SIGNAL_STRENGTH_WEAK = -90;
-    private static final int RANGE = - (SIGNAL_STRENGTH_WEAK - SIGNAL_STRENGTH_STRONG);
+    private static final int RANGE = -(SIGNAL_STRENGTH_WEAK - SIGNAL_STRENGTH_STRONG);
     private static final String PROGRESS_CHARACTER = "I";
 
     public long id;
@@ -30,12 +30,12 @@ public class Location {
 
     private double getProgressValue() {
         if (signalStrength >= SIGNAL_STRENGTH_STRONG) {
-            return  100;
+            return 100;
         } else if (signalStrength <= SIGNAL_STRENGTH_WEAK) {
-            return  10;
+            return 10;
         } else {
             final double percentage = (SIGNAL_STRENGTH_STRONG - signalStrength) / (double) RANGE;
-            return  (1 - percentage) * 100;
+            return (1 - percentage) * 100;
         }
     }
 
