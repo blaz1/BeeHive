@@ -1,4 +1,4 @@
-package com.example.stanko.myapplication;
+package eu.execom.hackaton.beacon;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
