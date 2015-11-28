@@ -13,21 +13,14 @@ import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.ViewById;
 
 import eu.execom.hackaton.beacon.R;
-import eu.execom.hackaton.beacon.adapter.LocationListAdapter;
 import eu.execom.hackaton.beacon.service.BeaconDiscoveryService;
 import eu.execom.hackaton.beacon.service.BeaconDiscoveryService_;
 
 @EActivity(R.layout.homepage)
     public class MainActivity extends AppCompatActivity {
 
-
     @ViewById
     Toolbar toolbar;
-
-
-
-    @Bean
-    LocationListAdapter adapter;
 
     @AfterViews
     void startService() {
@@ -40,10 +33,10 @@ import eu.execom.hackaton.beacon.service.BeaconDiscoveryService_;
         //locationList.setAdapter(adapter);
     }
 
-        @Receiver(actions = BeaconDiscoveryService.NEW_BEACON_SIGHTING)
-    void onBeaconSighted() {
-        adapter.update(BeaconDiscoveryService.getBooksForLocation());
-    }
+//        @Receiver(actions = BeaconDiscoveryService.NEW_BEACON_SIGHTING)
+//    void onBeaconSighted() {
+//        adapter.update(BeaconDiscoveryService.getBooksForLocation());
+//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,20 +50,6 @@ import eu.execom.hackaton.beacon.service.BeaconDiscoveryService_;
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
-
-//        Button button = (Button)findViewById(R.id.button1);
-
-//        button.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View arg) {
-//                Intent viewIntent = new Intent(getApplicationContext(), SectionActivity.class);
-//                startActivity(viewIntent);
-//            }
-//        });
-
-
-
-
 
     }
     @Click

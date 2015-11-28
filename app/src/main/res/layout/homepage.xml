@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="130dp"
-        android:text="Show sections"
+        android:text="Check closest section"
         android:fontFamily=""
         android:onClick="selfDestruct" />
 
