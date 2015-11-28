@@ -1,14 +1,9 @@
  package eu.execom.hackaton.beacon.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
@@ -47,7 +42,7 @@ import eu.execom.hackaton.beacon.service.BeaconDiscoveryService_;
 
         @Receiver(actions = BeaconDiscoveryService.NEW_BEACON_SIGHTING)
     void onBeaconSighted() {
-        adapter.update(BeaconDiscoveryService.getLocations());
+        adapter.update(BeaconDiscoveryService.getBooksForLocation());
     }
 
     @Override
@@ -80,7 +75,7 @@ import eu.execom.hackaton.beacon.service.BeaconDiscoveryService_;
     }
     @Click
     void button1 () {
-        Intent viewIntent = new Intent(getApplicationContext(), SectionActivity_.class);
+        Intent viewIntent = new Intent(getApplicationContext(), BookActivity_.class);
         startActivity(viewIntent);
     }
 }

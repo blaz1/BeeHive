@@ -18,7 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eu.execom.hackaton.beacon.R;
+import eu.execom.hackaton.beacon.model.Book;
 import eu.execom.hackaton.beacon.model.Location;
+import eu.execom.hackaton.beacon.model.SetupData;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
@@ -46,10 +48,10 @@ public class BeaconDiscoveryService extends Service {
             public void onBeaconSighting(BeaconSighting beaconSighting) {
                 super.onBeaconSighting(beaconSighting);
 
-                final Beacon beacon = beaconSighting.getBeacon();
+                Beacon beacon = beaconSighting.getBeacon();
                 Log.d(TAG, "Beacon sighted " + beacon.getName() + " id: " + beacon.getIdentifier());
 
-                final Location newLocation = new Location();
+                Location newLocation = new Location();
                 newLocation.uuid = beacon.getIdentifier();
                 newLocation.signalStrength = beaconSighting.getRSSI();
 
@@ -102,7 +104,7 @@ public class BeaconDiscoveryService extends Service {
         locations.add(newLocation);
     }
 
-    public static Location getLocations() {
+    public static ArrayList<Book> getBooksForLocation() {
         int maxSignal=Integer.MIN_VALUE;
         int maxIndex=0;
         for(int i=0;i<locations.size();i++){
@@ -112,7 +114,22 @@ public class BeaconDiscoveryService extends Service {
             }
         }
 
-        return locations.get(maxIndex);
+        int maxSectionIndex=0;
+        String locationUuid=locations.get(maxIndex).uuid;
+        SetupData map=new SetupData();
+        for(int i=0;i<map.getListOfLocations().size();i++) {
+            if (map.getListOfLocations().get(i).uuid.equals(locationUuid)) {
+                maxSectionIndex = map.getListOfLocations().get(i).section.getIdSection();
+                break;
+            }
+        }
+
+        ArrayList<Book> bookList=new ArrayList<>();
+        for(Book i : map.getListOfBooks())
+            if(i.getSection().getIdSection()==maxSectionIndex)
+                bookList.add(i);
+
+        return bookList;
     }
 
     @Override

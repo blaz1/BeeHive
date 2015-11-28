@@ -1,5 +1,6 @@
 package eu.execom.hackaton.beacon.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +11,14 @@ public class SetupData {
     private List<Section> listOfSections;
     private List<Book> listOfBooks;
     private List<Author> listOfAuthors;
+    private List<Location> listOfLocations;
 
-    public void SetupData() {
+    public SetupData() {
+
+        listOfSections = new ArrayList<>();
+        listOfBooks = new ArrayList<>();
+        listOfAuthors = new ArrayList<>();
+        listOfLocations = new ArrayList<>();
         //AUTHORS
         //english
         Author rowling = new Author();
@@ -596,8 +603,70 @@ public class SetupData {
         confessionsOfAnEconomicHitman.setSection(economics);
         listOfBooks.add(confessionsOfAnEconomicHitman);
 
-        //LOCATIONS
+        //SECTIONS
+
+        Location beacon1 = new Location();
+        beacon1.uuid = "NV56-5TPU5";
+        beacon1.section = history;
+        beacon1.id = 1;
+        listOfLocations.add(beacon1);
+
+        Location beacon2 = new Location();
+        beacon2.uuid = "894U-PP28S";
+        beacon2.section = english;
+        beacon1.id = 2;
+        listOfLocations.add(beacon2);
+
+        Location beacon3 = new Location();
+        beacon3.uuid = "37VF-SHK22";
+        beacon3.section = art;
+        beacon1.id = 3;
+        listOfLocations.add(beacon3);
+
+        Location beacon4 = new Location();
+        beacon4.uuid = "QMPG-BHA14";
+        beacon4.section = economics;
+        beacon1.id = 4;
+        listOfLocations.add(beacon4);
+
+        Location beacon5 = new Location();
+        beacon5.uuid = "Q2WN-ZSZPY";
+        beacon5.section = physics;
+        beacon1.id = 5;
+        listOfLocations.add(beacon5);
+
 
     }
 
+    public List<Section> getListOfSections() {
+        return listOfSections;
+    }
+
+    public void setListOfSections(List<Section> listOfSections) {
+        this.listOfSections = listOfSections;
+    }
+
+    public List<Book> getListOfBooks() {
+        return listOfBooks;
+    }
+
+    public void setListOfBooks(List<Book> listOfBooks) {
+        this.listOfBooks = listOfBooks;
+    }
+
+    public List<Author> getListOfAuthors() {
+        return listOfAuthors;
+    }
+
+    public void setListOfAuthors(List<Author> listOfAuthors) {
+        this.listOfAuthors = listOfAuthors;
+    }
+
+    public List<Location> getListOfLocations() {
+        return listOfLocations;
+    }
+
+    public void setListOfLocations(List<Location> listOfLocations) {
+        this.listOfLocations = listOfLocations;
+    }
 }

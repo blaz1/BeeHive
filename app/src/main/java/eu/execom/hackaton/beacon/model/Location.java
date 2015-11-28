@@ -17,6 +17,8 @@ public class Location {
 
     public int signalStrength;
 
+    public Section section;
+
     @Override
     public String toString() {
         final int signalStrength = (int) getProgressValue() / 20;

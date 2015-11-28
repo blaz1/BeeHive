@@ -15,7 +15,7 @@ import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.ViewById;
 
 import eu.execom.hackaton.beacon.R;
-import eu.execom.hackaton.beacon.adapter.LocationListAdapter;
+import eu.execom.hackaton.beacon.adapter.BookGridAdapter;
 import eu.execom.hackaton.beacon.service.BeaconDiscoveryService;
 import eu.execom.hackaton.beacon.service.BeaconDiscoveryService_;
 
@@ -23,16 +23,16 @@ import eu.execom.hackaton.beacon.service.BeaconDiscoveryService_;
  * Created by D on 11/28/2015.
  */
 @EActivity(R.layout.sections)
-public class SectionActivity extends AppCompatActivity {
+public class BookActivity extends AppCompatActivity {
 
         @ViewById
         Toolbar toolbar;
-     @ViewById
-     GridView grid;
 
+        @ViewById
+        GridView grid;
 
         @Bean
-        LocationListAdapter adapter;
+        BookGridAdapter adapter;
 
         @AfterViews
         void startService() {
@@ -68,7 +68,7 @@ public class SectionActivity extends AppCompatActivity {
 
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View arg) {
-                    Intent viewIntent = new Intent(getApplicationContext(), SectionActivity.class);
+                    Intent viewIntent = new Intent(getApplicationContext(), MainActivity_.class);
                     startActivity(viewIntent);
                 }
             });

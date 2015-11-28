@@ -23,7 +23,7 @@ import eu.execom.hackaton.beacon.model.Location;
 @EBean
 public class BookGridAdapter extends BaseAdapter {
 
-    private final List<Book> books = new ArrayList<>();
+    private List<Book> books = new ArrayList<>();
 
     @RootContext
     Context context;

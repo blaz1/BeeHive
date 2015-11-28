@@ -16,12 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eu.execom.hackaton.beacon.R;
+import eu.execom.hackaton.beacon.model.Book;
 import eu.execom.hackaton.beacon.model.Location;
+import eu.execom.hackaton.beacon.model.SetupData;
 
 @EBean
 public class LocationListAdapter extends BaseAdapter {
 
-    private final List<Location> locations = new ArrayList<>();
+    private final List<Book> locations = new ArrayList<>();
 
     @RootContext
     Context context;
@@ -32,13 +34,20 @@ public class LocationListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Location getItem(int position) {
+    public Book getItem(int position) {
         return locations.get(position);
     }
 
     @Override
-    public long getItemId(int position) {
-        return position;
+    public long getItemId(int uuid) {
+        SetupData sd =  new SetupData();
+        for (Location l : sd.getListOfLocations()) {
+            if (l.uuid.equals(uuid)) {
+
+            }
+        }
+//        return position;
+        return 0;
     }
 
     @Override
@@ -53,28 +62,29 @@ public class LocationListAdapter extends BaseAdapter {
         return locationItemView;
     }
 
-    public void update(Location location) {
+    public void update(List<Book> locations) {
         this.locations.clear();
-        this.locations.add(location);
+        this.locations.addAll(locations);
         notifyDataSetChanged();
     }
 
     @EViewGroup(R.layout.item_location)
     public static class LocationItemView extends LinearLayout {
+//        @ViewById
+//        List<Book> books;
 
         @ViewById
-        TextView uuid;
+        TextView name;
 
         @ViewById
-        TextView signalStrength;
+        TextView thumb;
 
         public LocationItemView(Context context) {
             super(context);
         }
 
-        public void bind(Location location) {
-            uuid.setText(location.uuid);
-            signalStrength.setText(location.getSignalStrength());
+        public void bind(Book b) {
+            name.setText(b.getTitle());
         }
 
     }
