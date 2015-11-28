@@ -35,6 +35,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.SectionActivity_"
+            android:label="@string/app_name" />
+
         <service
             android:name=".service.BeaconDiscoveryService_"
             android:exported="false" />

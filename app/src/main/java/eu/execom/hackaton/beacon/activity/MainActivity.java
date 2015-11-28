@@ -12,6 +12,7 @@ import android.widget.ListView;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Receiver;
 import org.androidannotations.annotations.ViewById;
@@ -63,15 +64,23 @@ import eu.execom.hackaton.beacon.service.BeaconDiscoveryService_;
         }
 
 
-        Button button = (Button)findViewById(R.id.button1);
+//        Button button = (Button)findViewById(R.id.button1);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg) {
-                Intent viewIntent = new Intent(getApplicationContext(), SectionActivity.class);
-                startActivity(viewIntent);
-            }
-        });
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View arg) {
+//                Intent viewIntent = new Intent(getApplicationContext(), SectionActivity.class);
+//                startActivity(viewIntent);
+//            }
+//        });
 
 
+
+
+
+    }
+    @Click
+    void button1 () {
+        Intent viewIntent = new Intent(getApplicationContext(), SectionActivity_.class);
+        startActivity(viewIntent);
     }
 }

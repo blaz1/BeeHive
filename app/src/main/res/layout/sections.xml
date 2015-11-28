@@ -16,6 +16,11 @@
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
+    <GridView
+        android:id="@+id/grid"
+        android:numColumns="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></GridView>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="320dp"
