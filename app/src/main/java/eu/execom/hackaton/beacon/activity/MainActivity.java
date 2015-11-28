@@ -74,7 +74,4 @@ import eu.execom.hackaton.beacon.service.BeaconDiscoveryService_;
 
 
     }
-
-
-
-    }
+}

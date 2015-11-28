@@ -53,9 +53,9 @@ public class LocationListAdapter extends BaseAdapter {
         return locationItemView;
     }
 
-    public void update(List<Location> locations) {
+    public void update(Location location) {
         this.locations.clear();
-        this.locations.addAll(locations);
+        this.locations.add(location);
         notifyDataSetChanged();
     }
 
